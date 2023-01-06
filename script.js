@@ -137,13 +137,33 @@ fruits.push('mangos'); // will add mangos in the end of your array.
 fruits.unshift('mangos'); // will add mangos in the beginning of your array.
 fruits.pop(); // will not print the last value in your array.
 console.log(Array.isArray)('example'); // will give you a boolean answer as to whether something is an array or not.
+console.log(example.indexOf('oranges')); // Will print the index of a certaint value. Will print '1' since oranges has the index of 1.
 
-fortsätt vid 29:05 https://www.youtube.com/watch?v=hdI2bqOjy3c 
+// Array documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 // ----------------------------------------------------------------
 
 
+// Object litterals (Key value pairs) -----------------------------
+
+const person = {
+    firstName: 'John',                          // string
+    lastName: 'Doe',                            // string
+    age: 30,                                    // number
+    hobbies: ['music', 'movies', 'sports'],     // array
+    adress: {                                   // inbeded object (an object within an object)
+        street: '50 main st',
+        city: 'Boston',
+        state: 'MA'
+    }
+}
+console.log(person);                            // Will print '{firstName: 'John', lastName: 'Doe', age: 30, hobbies: Array(3), adress: {…}}'.
+console.log(person.firstName);                  // Will print 'John'
+console.log(person.firstName, person.lastName); // Will print 'John Doe'.
+console.log(person.hobbies[1]);                 // Will print 'movies'.
 
 
+fortsätt vid 32:13  https://www.youtube.com/watch?v=hdI2bqOjy3c 
+
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
@@ -152,4 +172,4 @@ fortsätt vid 29:05 https://www.youtube.com/watch?v=hdI2bqOjy3c
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
-// ----------------------------------------------------------------
+
