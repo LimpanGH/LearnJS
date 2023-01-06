@@ -1,3 +1,4 @@
+
 /* MDN is the best documentation for JS according to Traversy.
 Console metods: https://developer.mozilla.org/en-US/docs/Web/API/console#methods */
 
@@ -114,5 +115,41 @@ console.log(numbers);
 const example = ['apples', 'oranges', 'pears'];
 console.log(example);
 // Will print '(3) ['apples', 'oranges', 'pears']'.
+
+// In JS you can have multiple datatypes in an array
+
+const example = ['apples', 'oranges', 'pears', 10, true];
+console.log(example);
+// Will print '(5) ['apples', 'oranges', 'pears', 10, true]'.
+
+// You can acces a specific value in your array:
+const example = ['apples', 'oranges', 'pears', 10, true];
+console.log(example[1]);
+// Will print 'oranges' since oranges is indexed as 1 and apples as 0.
+
+// You can add values to your array and specify the index of your added value:
+const example = ['apples', 'oranges', 'pears', 10, true];
+example[3] = 'grapes';
+console.log(example);
+// Will print '(5) ['apples', 'oranges', 'pears', 'grapes', true]'.
+
+fruits.push('mangos'); // will add mangos in the end of your array.
+fruits.unshift('mangos'); // will add mangos in the beginning of your array.
+fruits.pop(); // will not print the last value in your array.
+console.log(Array.isArray)('example'); // will give you a boolean answer as to whether something is an array or not.
+
+fortsätt vid 29:05 https://www.youtube.com/watch?v=hdI2bqOjy3c 
 // ----------------------------------------------------------------
 
+
+
+
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// ----------------------------------------------------------------
