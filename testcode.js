@@ -14,6 +14,8 @@ const todos = [
         text: 'Dentist appointment',
         isCompleted: false
     },
- ]
+ ];
 
- console.log(todos[1].text);
+ todos.forEach(function(todo) {
+    console.log(todo.text);
+    })

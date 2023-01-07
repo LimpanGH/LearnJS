@@ -190,14 +190,118 @@ console.log(city);                              // and when we CL the destructur
         text: 'Dentist appointment',
         isCompleted: false
     },
- ]
+ ];
 console.log(todos);           // Will print '(3) [{…}, {…}, {…}]'
 console.log(todos[1].text);   // will grab the second array since it is indexed as 1, then grab the value assigned to the property of text, and print 'Meeting with Boss'.      
- // ----------------------------------------------------------------
+// ----------------------------------------------------------------
 
 
+ // JSON -----------------------------------------------------------
+/* JSON is a data format and it is used a lot in full stack dev and the use of APIs when you are 
+sending data to a server and receives data from a server and it is similar to object literals */
 
- fortsätt vid   https://www.youtube.com/watch?v=hdI2bqOjy3c 
+// If we take this Object, (same as above)..
+const todos = [
+    {
+        id: 1,
+        text: 'Take out trash',
+        isCompleted: true
+    },
+    {
+        id: 2,
+        text: 'Meeting with boss',
+        isCompleted: true
+    },
+    {
+        id: 3,
+        text: 'Dentist appointment',
+        isCompleted: false
+    },
+ ];
+
+ /* and run the code, bracket to bracket, in a JSON formatter @ https://freeformatter.com/html-formatter.html, 
+ we would get this JSON code, notice the DOUBBLE QUOTES: */
+ [
+    {
+       "id": 1,
+       "text": "Take out trash",
+       "isCompleted": true
+    },
+    {
+       "id": 2,
+       "text": "Meeting with boss",
+       "isCompleted": true
+    },
+    {
+       "id": 3,
+       "text": "Dentist appointment",
+       "isCompleted": false
+    }
+    ]
+    
+    // To convert your code before you send it to the server:
+ const todoJSON = JSON.stringify(todos);
+ console.log(todoJSON);
+// ----------------------------------------------------------------
+
+
+// Loops ----------------------------------------------------------
+
+// for-loops
+for(let i = 0; i <= 10; i++) {  // We pass in three parameters, i=0 (assigning the iterator/variable), i<=10 (the condition that needs to be met) and i++ (the increments, ++ will add one to the i-variable).
+    console.log(i);             
+    // Will print '0 1 2 3 4 5 6 7 8 9 10'.
+    
+for(let i = 0; i <= 10; i++) {
+    console.log(`Hej: ${i}`);       // We could use Template String in order to modify the output.
+}
+// Will print: 'Hej: 0 Hej: 1 Hej: 2 Hej: 3 Hej: 4 Hej: 5 Hej: 6 Hej: 7 Hej: 8 Hej: 9 Hej: 19'.
+
+
+// while-loops (here we set the variable outside the loop)
+let i = 0;
+while(i < 10) {
+    console.log(`Tjena: ${i}`);
+    i++;
+}  
+// Will print 'Tjena: 0 Tjena: 1 Tjena: 2 Tjena: 3 Tjena: 4 Tjena: 5 Tjena: 6 Tjena: 7 Tjena: 8 Tjena: 9'.
+
+// Loop through arrays (iterate)
+for(let todo of todos) {
+    console.log(todo);            // Grab all the properties in the array with (todo).           
+}  
+// Will print: 
+{id: 1, text: 'Take out trash', isCompleted: true}
+{id: 2, text: 'Meeting with boss', isCompleted: true}
+{id: 3, text: 'Dentist appointment', isCompleted: false}
+
+// Loop through arrays with for-of (iterate)
+for(let todo of todos) {
+    console.log(todo.text);        // Just grab the 'text' properties in the array with (todo.text).               
+}  
+// Will print 
+Take out trash
+Meeting with boss
+Dentist appointment
+
+// High order array-methods (forEach, map and filter) are the recomended way to iterate with arrays.
+/*      for each -  loops through the array.
+        map      -  allows us to create a new array through an array.
+        filter   -  allows us to create a new array based on a condition. */
+
+todos.forEach(function(todo) {
+console.log(todo.text);
+})
+// Will print:
+Take out trash
+Meeting with boss
+Dentist appointment
+
+
+// ----------------------------------------------------------------
+
+
+ fortsätt vid  42:43  https://www.youtube.com/watch?v=hdI2bqOjy3c 
 
 
 /* Manipulating the DOM with JavaScript----------------------------
