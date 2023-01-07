@@ -1,13 +1,19 @@
+const todos = [
+    {
+        id: 1,
+        text: 'Take out trash',
+        isCompleted: true
+    },
+    {
+        id: 2,
+        text: 'Meeting with boss',
+        isCompleted: true
+    },
+    {
+        id: 3,
+        text: 'Dentist appointment',
+        isCompleted: false
+    },
+ ]
 
-const person = {
-    firstName: 'John',                          // string
-    lastName: 'Doe',                            // string
-    age: 30,                                    // number
-    hobbies: ['music', 'movies', 'sports'],     // array
-    adress: {                                   // inbeded object (an object within an object)
-        street: '50 main st',
-        city: 'Boston',
-        state: 'MA'
-    }
-}
-console.log(person.hobbies[1]); 
+ console.log(todos[1].text);

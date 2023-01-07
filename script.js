@@ -150,7 +150,7 @@ const person = {
     lastName: 'Doe',                            // string
     age: 30,                                    // number
     hobbies: ['music', 'movies', 'sports'],     // array
-    adress: {                                   // inbeded object (an object within an object)
+    address: {                                   // inbeded object (an object within an object)
         street: '50 main st',
         city: 'Boston',
         state: 'MA'
@@ -160,16 +160,78 @@ console.log(person);                            // Will print '{firstName: 'John
 console.log(person.firstName);                  // Will print 'John'
 console.log(person.firstName, person.lastName); // Will print 'John Doe'.
 console.log(person.hobbies[1]);                 // Will print 'movies'.
+console.log(person.address.city);               // Will print 'Boston'.
+
+const { firstName, lastName } = person;         // By using destructuring we can create variables (pull them out) from the object
+console.log(firstName);                         // and when we CL the destructure, it will print 'John'.
+const { firstName, lastName, address: { city }} = person;         // We can also pull out values from inbeded objects.
+console.log(city);                              // and when we CL the destructure, it will print 'Boston'.
+
+ person.email = 'john@gmail.com';               // Adding properties with values to the object
+ console.log(person);
 
 
-fortsätt vid 32:13  https://www.youtube.com/watch?v=hdI2bqOjy3c 
+ // Arrays of objects ----------------------------------------------
 
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
-// ----------------------------------------------------------------
+ // Lets make a to-do list, an array of to-do's
+ const todos = [
+    {
+        id: 1,
+        text: 'Take out trash',
+        isCompleted: true
+    },
+    {
+        id: 2,
+        text: 'Meeting with boss',
+        isCompleted: true
+    },
+    {
+        id: 3,
+        text: 'Dentist appointment',
+        isCompleted: false
+    },
+ ]
+console.log(todos);           // Will print '(3) [{…}, {…}, {…}]'
+console.log(todos[1].text);   // will grab the second array since it is indexed as 1, then grab the value assigned to the property of text, and print 'Meeting with Boss'.      
+ // ----------------------------------------------------------------
 
+
+
+ fortsätt vid   https://www.youtube.com/watch?v=hdI2bqOjy3c 
+
+
+/* Manipulating the DOM with JavaScript----------------------------
+https://www.reddit.com/r/learnjavascript/comments/103uxvs/mustknow_dom_manipulation_methods */ 
+
+// Creating, adding and removing:
+document.createElement('HTMLTag');          // Create an element 
+document.body.prepend(myElement);           // Insert last 
+document.body.append(myElement);            // Insert first
+parentElement.insertBefore(newElement, existingElement); // Insert before 
+element.remove();                           // Remove element
+
+// Content setting:
+element.innerHTML = "HTML content";         // Set HTML content inside element
+element.innerText = "text content";         // Set text (preserves formatting)
+element.textContent = "text content";       // Set text (ignores formatting)
+
+// Working with attributes:
+element.getAttribute('attribute');          // Returns attribute value 
+element.removeAttribute('attribute');       // Removes attribute
+element.setAttribute('attribute', 'value'); // Sets attribute with
+element.id;                                 // Returns element id 
+element.id = 'value';                       // Sets element id
+element.className = 'list';                 // Set new class list 
+element.classList;                          // Returns items in class list in array-like format
+element.classList.add('classItem');         // Add item to class list element.classList.remove('classItem'); // Remove item from class list
+element.classList.toggle('classItem');     // Toggle item in class list
+
+// Editing styles:
+getComputedStyle(myElement);                // Returns all styling of an element
+element.style = 'CSS';                      // Sets element style attribute
+element.style.styleAttribute = 'value';     // Sets individual style
+
+// Vet inte var jag ska lägga dessa
+element.insertAdjacentHTML('beforeend', `HTML content`)
+element.insertAdjacentText('beforeend', `Text content`)
+// ----------------------------------------------------------------
