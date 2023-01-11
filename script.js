@@ -1,30 +1,26 @@
+20:38
 
 /* MDN is the best documentation for JS according to Traversy.
 Console metods: https://developer.mozilla.org/en-US/docs/Web/API/console#methods */
 
-// Traversy tutorial: https://www.youtube.com/watch?v=hdI2bqOjy3c
+// Traversy tutorial 'JavaScript Crash Course For Beginners': https://www.youtube.com/watch?v=hdI2bqOjy3c
 
-//In VS code: -----------------------------------------------------
+// The console ----------------------------------------------------
 alert ('Hello World');       /*Gives you a popup in the browser.*/
 console.log ('Hello World'); /*Gives you the message Hello World in the browser console*/
-// ----------------------------------------------------------------
-
-
-//In the console: --------------------------------------------------
-alert (1) - Gives you a popup in the browser.
 
 INSTANCE METHODS IN CONSOLE. /*more examples https://developer.mozilla.org/en-US/docs/Web/API/console#methods */
-
 console.log()   /* For general output of logging information. You may use string substitution and additional arguments with this method. */
 console.clear() /* Clear the console.*/
-console.info()  /* Informative logging of information. You may use string substitution and additional arguments with this method. */
-console.warn()  /* Outputs a warning message. You may use string substitution and additional arguments with this method. */
+console.info('Example')  /* Informative logging of information. You may use string substitution and additional arguments with this method. */
+console.warn('Example ')  /* Outputs a warning message. You may use string substitution and additional arguments with this method. */
 // ----------------------------------------------------------------
 
 
 // VARIABLES:------------------------------------------------------
-let             /* Use if you need to be able to reassign values. */
-const           /* Cannot be reassigned (constant), always use const unless you know you want be able to reassign values. */
+let             // Use if you need to be able to reassign values.
+const           // Cannot be reassigned (constant), always use const unless you know you want be able to reassign values.
+var             // DEPRECATED, globaly scoped, can cause conflicts.
 
 const age = 30
 console.log(age)
@@ -45,14 +41,18 @@ DATATYPES   EXAMPLES
 string      const name = 'John';
 number      const age = 30;
 boolean     const isCool = true;
-null        const x = null;
+null        const x = null; 
 undefined   const y = undefined;
+undefined   const y;        // If you dont assign a datatype to the variable, it will automatically be undefined.
+
 
 // Array and object-litterals are not primitive datatypes but rather objects.
 
 console.log(typeof name);
 Will print string since 'John' is a string.
-Null will come up as object but thats incorrect.
+/* Null will come up as object but thats incorrect. In the first implementation of JavaScript, JavaScript 
+values were represented as a type tag and a value. The type tag for objects was 0. null was represented as 
+the NULL pointer (0x00 in most platforms). Consequently, null had 0 as type tag, hence the "object" typeof return value. */
 // ----------------------------------------------------------------
 
 
@@ -60,7 +60,6 @@ Null will come up as object but thats incorrect.
 console.log('My name is ' + name + 'and I am ' + age)  
 
 //Template strings is the new way since ES6 from 2015.We make it a template string by using backticks:
-
 console.log(`My name is ${name} and I am ${age}`);
 // Will print: My name is John and I am 30
 
@@ -289,13 +288,34 @@ Dentist appointment
         map      -  allows us to create a new array through an array.
         filter   -  allows us to create a new array based on a condition. */
 
-todos.forEach(function(todo) {
+//forEach
+todos.forEach(function(todo) {                      
 console.log(todo.text);
 })
 // Will print:
 Take out trash
 Meeting with boss
 Dentist appointment
+
+//map
+const todoText = todos.map(function(todo) {         
+    return todo.text;
+});
+console.log(todoText);
+// Will print:
+(3) ['Take out trash', 'Meeting with boss', 'Dentist appointment']
+
+//filter
+const todoCompleted = todos.filter(function(todo) {   
+    return todo.isCompleted === true;                   //Filters out the .text values that are true.
+});
+console.log(todoCompleted);
+// Will print:
+0: {id: 1, text: 'Take out trash', isCompleted: true}
+1: {id: 2, text: 'Meeting with boss', isCompleted: true}
+length: 2
+
+
 
 
 // ----------------------------------------------------------------

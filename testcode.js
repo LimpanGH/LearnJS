@@ -1,21 +1,4 @@
-const todos = [
-    {
-        id: 1,
-        text: 'Take out trash',
-        isCompleted: true
-    },
-    {
-        id: 2,
-        text: 'Meeting with boss',
-        isCompleted: true
-    },
-    {
-        id: 3,
-        text: 'Dentist appointment',
-        isCompleted: false
-    },
- ];
+const name = 'Krillan';
+const age = 30;
+console.log(`Hello my name is ${name} and I am ${age} years old`)
 
- todos.forEach(function(todo) {
-    console.log(todo.text);
-    })
