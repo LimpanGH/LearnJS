@@ -111,6 +111,7 @@ const numbers = new Array(1,2,3,4,5);
 console.log(numbers);
 // Will print '(5) [1, 2, 3, 4, 5]'. 
 
+// This way is the common way of making arrays.
 const example = ['apples', 'oranges', 'pears'];
 console.log(example);
 // Will print '(3) ['apples', 'oranges', 'pears']'.
@@ -142,7 +143,7 @@ console.log(example.indexOf('oranges')); // Will print the index of a certaint v
 // ----------------------------------------------------------------
 
 
-// Object litterals (Key value pairs) -----------------------------
+// Objects, AKA Object Litterals, are key value pairs -------------
 
 const person = {
     firstName: 'John',                          // string
@@ -156,11 +157,12 @@ const person = {
     }
 }
 console.log(person);                            // Will print '{firstName: 'John', lastName: 'Doe', age: 30, hobbies: Array(3), adress: {…}}'.
-console.log(person.firstName);                  // Will print 'John'
-console.log(person.firstName, person.lastName); // Will print 'John Doe'.
-console.log(person.hobbies[1]);                 // Will print 'movies'.
-console.log(person.address.city);               // Will print 'Boston'.
-
+console.log(person.firstName);                  // Will print 'John' by using the dot syntax.
+console.log(person.firstName, person.lastName); // Will print 'John Doe' by using the dot syntax and a comma between.
+console.log(person.hobbies[1]);                 // Will print 'movies' by using the dot syntax and brackets to specify the index you want from the arary. 
+console.log(person.address.city);               // Will print 'Boston' by using the dot syntax twice.
+ 
+// Destructuring (advanced, came with ES6)
 const { firstName, lastName } = person;         // By using destructuring we can create variables (pull them out) from the object
 console.log(firstName);                         // and when we CL the destructure, it will print 'John'.
 const { firstName, lastName, address: { city }} = person;         // We can also pull out values from inbeded objects.
@@ -170,7 +172,7 @@ console.log(city);                              // and when we CL the destructur
  console.log(person);
 
 
- // Arrays of objects ----------------------------------------------
+ // Arrays of Objects ---------------------------------------------
 
  // Lets make a to-do list, an array of to-do's
  const todos = [
@@ -247,7 +249,7 @@ const todos = [
 // Loops ----------------------------------------------------------
 
 // for-loops
-for(let i = 0; i <= 10; i++) {  // We pass in three parameters, i=0 (assigning the iterator/variable), i<=10 (the condition that needs to be met) and i++ (the increments, ++ will add one to the i-variable).
+for(let i = 0; i <= 10; i++) {  // We pass in three parameters: i=0 (assigning the iterator/variable), i<=10 (the condition that needs to be met) and i++ (the increments, ++ will add one to the i-variable).
     console.log(i);             
     // Will print '0 1 2 3 4 5 6 7 8 9 10'.
     
@@ -265,7 +267,7 @@ while(i < 10) {
 }  
 // Will print 'Tjena: 0 Tjena: 1 Tjena: 2 Tjena: 3 Tjena: 4 Tjena: 5 Tjena: 6 Tjena: 7 Tjena: 8 Tjena: 9'.
 
-// Loop through arrays (iterate)
+// Loop through arrays with for-of-loop (iterate)
 for(let todo of todos) {
     console.log(todo);            // Grab all the properties in the array with (todo).           
 }  
@@ -274,7 +276,7 @@ for(let todo of todos) {
 {id: 2, text: 'Meeting with boss', isCompleted: true}
 {id: 3, text: 'Dentist appointment', isCompleted: false}
 
-// Loop through arrays with for-of (iterate)
+// Loop through arrays with for-of-loop  (iterate)
 for(let todo of todos) {
     console.log(todo.text);        // Just grab the 'text' properties in the array with (todo.text).               
 }  
