@@ -299,7 +299,7 @@ Take out trash
 Meeting with boss
 Dentist appointment
 
-//map
+//map 
 const todoText = todos.map(function(todo) {         
     return todo.text;
 });
