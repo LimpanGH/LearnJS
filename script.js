@@ -252,14 +252,16 @@ const todos = [
 for(let i = 0; i <= 10; i++) {  // We pass in three parameters: i=0 (assigning the iterator/variable), i<=10 (the condition that needs to be met) and i++ (the increments, ++ will add one to the i-variable).
     console.log(i);             
     // Will print '0 1 2 3 4 5 6 7 8 9 10'.
-    
+} 
+
+//for-loop with added template string
 for(let i = 0; i <= 10; i++) {
     console.log(`Hej: ${i}`);       // We could use Template String in order to modify the output.
 }
 // Will print: 'Hej: 0 Hej: 1 Hej: 2 Hej: 3 Hej: 4 Hej: 5 Hej: 6 Hej: 7 Hej: 8 Hej: 9 Hej: 19'.
 
 
-// while-loops (here we set the variable outside the loop)
+// while-loops (here we set the variable outside the loop), (while loops are oldschool)
 let i = 0;
 while(i < 10) {
     console.log(`Tjena: ${i}`);
@@ -268,7 +270,7 @@ while(i < 10) {
 // Will print 'Tjena: 0 Tjena: 1 Tjena: 2 Tjena: 3 Tjena: 4 Tjena: 5 Tjena: 6 Tjena: 7 Tjena: 8 Tjena: 9'.
 
 // Loop through arrays with for-of-loop (iterate)
-for(let todo of todos) {
+for(let todo of todos) {          // todo is just a name, todos is the name of our array above.
     console.log(todo);            // Grab all the properties in the array with (todo).           
 }  
 // Will print: 
