@@ -1,11 +1,11 @@
-20:38
+Continue Timestamp: 50:00   link: https://www.youtube.com/watch?v=hdI2bqOjy3c
 
 /* MDN is the best documentation for JS according to Traversy.
 Console metods: https://developer.mozilla.org/en-US/docs/Web/API/console#methods */
 
 // Traversy tutorial 'JavaScript Crash Course For Beginners': https://www.youtube.com/watch?v=hdI2bqOjy3c
 
-// The console ----------------------------------------------------
+// The console ------------------------------------------------------
 alert ('Hello World');       /*Gives you a popup in the browser.*/
 console.log ('Hello World'); /*Gives you the message Hello World in the browser console*/
 
@@ -14,10 +14,10 @@ console.log()   /* For general output of logging information. You may use string
 console.clear() /* Clear the console.*/
 console.info('Example')  /* Informative logging of information. You may use string substitution and additional arguments with this method. */
 console.warn('Example ')  /* Outputs a warning message. You may use string substitution and additional arguments with this method. */
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 
 
-// VARIABLES:------------------------------------------------------
+// VARIABLES:--------------------------------------------------------
 let             // Use if you need to be able to reassign values.
 const           // Cannot be reassigned (constant), always use const unless you know you want be able to reassign values.
 var             // DEPRECATED, globaly scoped, can cause conflicts.
@@ -38,25 +38,27 @@ console.log(age)
 
 // You can assign these datatypes with the let and const variables:
 DATATYPES   EXAMPLES
-string      const name = 'John';
-number      const age = 30;
-boolean     const isCool = true;
-null        const x = null; 
-undefined   const y = undefined;
-undefined   const y;        // If you dont assign a datatype to the variable, it will automatically be undefined.
+const name = 'John';        // String
+const age = 30;             // Number
+const isCool = true;        // Boolean
+const x = null;             // Null    
+const y = undefined;        // Undefined
+const y;                    // Undefined. If you dont assign a datatype to the variable, it will automatically be undefined.
 
 
 // Array and object-litterals are not primitive datatypes but rather objects.
 
-console.log(typeof name);
-Will print string since 'John' is a string.
 /* Null will come up as object but thats incorrect. In the first implementation of JavaScript, JavaScript 
 values were represented as a type tag and a value. The type tag for objects was 0. null was represented as 
 the NULL pointer (0x00 in most platforms). Consequently, null had 0 as type tag, hence the "object" typeof return value. */
-// ----------------------------------------------------------------
+
+console.log(typeof name);
+Will print string since 'John' is a string.
+
+// ------------------------------------------------------------------
 
 
-// Concatenation (deprecated)--------------------------------------
+// Concatenation (deprecated)----------------------------------------
 console.log('My name is ' + name + 'and I am ' + age)  
 
 //Template strings is the new way since ES6 from 2015.We make it a template string by using backticks:
@@ -67,10 +69,10 @@ console.log(`My name is ${name} and I am ${age}`);
 const hello = `My name is ${name} and I am ${age}`;
 console.log(hello); 
 // Will also print: My name is John and I am 30
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 
 
-// String-property and string-methods------------------------------
+// String-property and string-methods--------------------------------
 .length         /* Property */
 
 .toUpperCase()  /* method, and therefore it has two parentheses */
@@ -95,23 +97,23 @@ console.log(example.substring(0, 7).toUpperCase());
 // Will print 'HELLO W', combining two methods with the dot operator.
 
 const example = 'Hello World';
-console.log(example.split(''));     (split by letter)
+console.log(example.split(''));     //split by letter
 //Will print '(11) ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']'. Stating 11 indexed characters in the paranteses and then prints all of them.
 
 const example = 'technology, computer, it, code';
-console.log(example.split(', '));    (split by )
+console.log(example.split(', '));    //split by word
 // Will print '(4) ['technology', 'computer', 'it', 'code']'. Stating 4 indexed words in the paranteses and then prints all of them.
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 
 
-// Arrays are variables that hold multiple values) ----------------
+// Arrays are variables that hold multiple values) ------------------
 
 // Using the Array constructor, This way is not used very often. ('new array' is the constructor)
 const numbers = new Array(1,2,3,4,5);
 console.log(numbers);
 // Will print '(5) [1, 2, 3, 4, 5]'. 
 
-// This way is the common way of making arrays.
+// This way is the common way of making arrays with brackets [].
 const example = ['apples', 'oranges', 'pears'];
 console.log(example);
 // Will print '(3) ['apples', 'oranges', 'pears']'.
@@ -140,10 +142,11 @@ console.log(Array.isArray)('example'); // will give you a boolean answer as to w
 console.log(example.indexOf('oranges')); // Will print the index of a certaint value. Will print '1' since oranges has the index of 1.
 
 // Array documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-// ----------------------------------------------------------------
+
+// ------------------------------------------------------------------
 
 
-// Objects, AKA Object Litterals, are key value pairs -------------
+// Objects, AKA Object Litterals, are key value pairs ---------------
 
 const person = {
     firstName: 'John',                          // string
@@ -172,7 +175,7 @@ console.log(city);                              // and when we CL the destructur
  console.log(person);
 
 
- // Arrays of Objects ---------------------------------------------
+ // Arrays of Objects -----------------------------------------------
 
  // Lets make a to-do list, an array of to-do's
  const todos = [
@@ -194,10 +197,10 @@ console.log(city);                              // and when we CL the destructur
  ];
 console.log(todos);           // Will print '(3) [{…}, {…}, {…}]'
 console.log(todos[1].text);   // will grab the second array since it is indexed as 1, then grab the value assigned to the property of text, and print 'Meeting with Boss'.      
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 
 
- // JSON -----------------------------------------------------------
+ // JSON -------------------------------------------------------------
 /* JSON is a data format and it is used a lot in full stack dev and the use of APIs when you are 
 sending data to a server and receives data from a server and it is similar to object literals */
 
@@ -243,10 +246,10 @@ const todos = [
     // To convert your code before you send it to the server:
  const todoJSON = JSON.stringify(todos);
  console.log(todoJSON);
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 
 
-// Loops ----------------------------------------------------------
+// Loops ------------------------------------------------------------
 
 // for-loops
 for(let i = 0; i <= 10; i++) {  // We pass in three parameters: i=0 (assigning the iterator/variable), i<=10 (the condition that needs to be met) and i++ (the increments, ++ will add one to the i-variable).
@@ -256,8 +259,7 @@ for(let i = 0; i <= 10; i++) {  // We pass in three parameters: i=0 (assigning t
 
 //for-loop with added template string
 for(let i = 0; i <= 10; i++) {
-    console.log(`Hej: ${i}`);       // We could use Template String in order to modify the output.
-}
+    console.log(`Hej: ${i}`);       // Here we use Template String in order to modify the output.
 // Will print: 'Hej: 0 Hej: 1 Hej: 2 Hej: 3 Hej: 4 Hej: 5 Hej: 6 Hej: 7 Hej: 8 Hej: 9 Hej: 19'.
 
 
@@ -319,17 +321,25 @@ console.log(todoCompleted);
 1: {id: 2, text: 'Meeting with boss', isCompleted: true}
 length: 2
 
+// ------------------------------------------------------------------
+
+
+// Conditionals------------------------------------------------------
+// https://www.youtube.com/watch?v=hdI2bqOjy3c  at 46:30
+
+ // if and else or else if.
+ // We can use the doubble and operator: &&, or the OR-operator: ||
+ // The ternary operator ?, takes three operands
+ // According to Kyle, we can skip using Else to make the code more readable https://www.youtube.com/watch?v=EumXak7TyQ0 but if you use If and Else properly, it usualy works very well.
+
+
+// ------------------------------------------------------------------
 
 
 
-// ----------------------------------------------------------------
+// Manipulating the DOM with JavaScript------------------------------
 
-
- fortsätt vid  42:43  https://www.youtube.com/watch?v=hdI2bqOjy3c 
-
-
-/* Manipulating the DOM with JavaScript----------------------------
-https://www.reddit.com/r/learnjavascript/comments/103uxvs/mustknow_dom_manipulation_methods */ 
+//https://www.reddit.com/r/learnjavascript/comments/103uxvs/mustknow_dom_manipulation_methods
 
 // Creating, adding and removing:
 document.createElement('HTMLTag');          // Create an element 
@@ -362,4 +372,4 @@ element.style.styleAttribute = 'value';     // Sets individual style
 // Vet inte var jag ska lägga dessa
 element.insertAdjacentHTML('beforeend', `HTML content`)
 element.insertAdjacentText('beforeend', `Text content`)
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
