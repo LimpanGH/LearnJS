@@ -10,3 +10,4 @@ function Person(firstName, lastName, dob) {
 // Instantiate object
 const person1 = new Person('John', 'Doe', '4-3-1980')
 console.log(person1);
+
