@@ -1,11 +1,4 @@
-// const x = 10;
-
-// if(x == 10) {
-//     then 
-// }
-
-// console.log('x is 10');
-
-const a = 3;
-const b = -2;
-console.log(a > 0 );
+const addNums = (num1, num2) => {
+    return num1 + num2;
+}
+console.log(addNums(5, 5));

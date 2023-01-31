@@ -251,86 +251,163 @@ const todos = [
 
 // Loops ------------------------------------------------------------
 
-// for-loops
-for(let i = 0; i <= 10; i++) {  // We pass in three parameters: i=0 (assigning the iterator/variable), i<=10 (the condition that needs to be met) and i++ (the increments, ++ will add one to the i-variable).
+ // for-loops
+ for(let i = 0; i <= 10; i++) {  // We pass in three parameters: i=0 (assigning the iterator/variable), i<=10 (the condition that needs to be met) and i++ (the increments, ++ will add one to the i-variable).
     console.log(i);             
     // Will print '0 1 2 3 4 5 6 7 8 9 10'.
-} 
+ } 
 
-//for-loop with added template string
-for(let i = 0; i <= 10; i++) {
+ //for-loop with added template string
+ for(let i = 0; i <= 10; i++) {
     console.log(`Hej: ${i}`);       // Here we use Template String in order to modify the output.
-// Will print: 'Hej: 0 Hej: 1 Hej: 2 Hej: 3 Hej: 4 Hej: 5 Hej: 6 Hej: 7 Hej: 8 Hej: 9 Hej: 19'.
+ // Will print: 'Hej: 0 Hej: 1 Hej: 2 Hej: 3 Hej: 4 Hej: 5 Hej: 6 Hej: 7 Hej: 8 Hej: 9 Hej: 19'.
 
 
-// while-loops (here we set the variable outside the loop), (while loops are oldschool)
-let i = 0;
-while(i < 10) {
+ // while-loops (here we set the variable outside the loop), (while loops are oldschool)
+ let i = 0;
+ while(i < 10) {
     console.log(`Tjena: ${i}`);
     i++;
-}  
-// Will print 'Tjena: 0 Tjena: 1 Tjena: 2 Tjena: 3 Tjena: 4 Tjena: 5 Tjena: 6 Tjena: 7 Tjena: 8 Tjena: 9'.
+ }  
+ // Will print 'Tjena: 0 Tjena: 1 Tjena: 2 Tjena: 3 Tjena: 4 Tjena: 5 Tjena: 6 Tjena: 7 Tjena: 8 Tjena: 9'.
 
-// Loop through arrays with for-of-loop (iterate)
-for(let todo of todos) {          // todo is just a name, todos is the name of our array above.
+ // Loop through arrays with for-of-loop (iterate)
+ for(let todo of todos) {          // todo is just a name, todos is the name of our array above.
     console.log(todo);            // Grab all the properties in the array with (todo).           
-}  
-// Will print: 
-{id: 1, text: 'Take out trash', isCompleted: true}
-{id: 2, text: 'Meeting with boss', isCompleted: true}
-{id: 3, text: 'Dentist appointment', isCompleted: false}
+ }  
+ // Will print: 
+ {id: 1, text: 'Take out trash', isCompleted: true}
+ {id: 2, text: 'Meeting with boss', isCompleted: true}
+ {id: 3, text: 'Dentist appointment', isCompleted: false}
 
-// Loop through arrays with for-of-loop  (iterate)
-for(let todo of todos) {
+ // Loop through arrays with for-of-loop  (iterate)
+ for(let todo of todos) {
     console.log(todo.text);        // Just grab the 'text' properties in the array with (todo.text).               
-}  
-// Will print 
-Take out trash
-Meeting with boss
-Dentist appointment
+ }  
+ // Will print 
+ Take out trash
+ Meeting with boss
+ Dentist appointment
 
-// High order array-methods (forEach, map and filter) are the recomended way to iterate with arrays.
-/*      for each -  loops through the array.
+ // High order array-methods (forEach, map and filter) are the recomended way to iterate with arrays.
+ /*      for each -  loops through the array.
         map      -  allows us to create a new array through an array.
         filter   -  allows us to create a new array based on a condition. */
 
-//forEach
-todos.forEach(function(todo) {                      
-console.log(todo.text);
-})
-// Will print:
-Take out trash
-Meeting with boss
-Dentist appointment
+ //forEach
+ todos.forEach(function(todo) {                      
+ console.log(todo.text);
+ })
+ // Will print:
+ Take out trash
+ Meeting with boss
+ Dentist appointment
 
-//map 
-const todoText = todos.map(function(todo) {         
+ //map 
+ const todoText = todos.map(function(todo) {         
     return todo.text;
-});
-console.log(todoText);
-// Will print:
-(3) ['Take out trash', 'Meeting with boss', 'Dentist appointment']
-
-//filter
-const todoCompleted = todos.filter(function(todo) {   
+ });
+ console.log(todoText);
+ // Will print:
+ (3) ['Take out trash', 'Meeting with boss', 'Dentist appointment']
+ 
+ //filter
+ const todoCompleted = todos.filter(function(todo) {   
     return todo.isCompleted === true;                   //Filters out the .text values that are true.
-});
-console.log(todoCompleted);
-// Will print:
-0: {id: 1, text: 'Take out trash', isCompleted: true}
-1: {id: 2, text: 'Meeting with boss', isCompleted: true}
-length: 2
+ });
+ console.log(todoCompleted);
+ // Will print:
+ 0: {id: 1, text: 'Take out trash', isCompleted: true}
+ 1: {id: 2, text: 'Meeting with boss', isCompleted: true}
+ length: 2
 
 // ------------------------------------------------------------------
 
 
 // Conditionals------------------------------------------------------
-// https://www.youtube.com/watch?v=hdI2bqOjy3c  at 46:30
+ // https://www.youtube.com/watch?v=hdI2bqOjy3c  at 46:30
 
  // if and else or else if.
- // We can use the doubble and operator: &&, or the OR-operator: ||
+ // We can use the doubble AND operator: && (both have to be true), or the OR-operator: ||, (one of the values have to be true). 
  // The ternary operator ?, takes three operands
  // According to Kyle, we can skip using Else to make the code more readable https://www.youtube.com/watch?v=EumXak7TyQ0 but if you use If and Else properly, it usualy works very well.
+
+ // Example 1
+ const x = 10;      // Changing the variable will change the output in the console
+ if(x === 10) {     // The use of === is more precise than the use of == because it also matches the datatypes
+     console.log('x = 10'); 
+ } else if (x > 10) {
+     console.log('x is greater than 10');
+ }else {
+     console.log('x is less than 10');
+ }
+ // Will print 'x = 10'.
+
+ // Example 2
+ const x = 4;
+ const y = 11;
+ if(x > 5 || y > 10){       // with the OR operator, one of the values have to be true, in this case, y is true.
+     console.log('x is more than 5 or y is more than 10');
+ }
+ // Will print 'x is more than 5 or y is more than 10' since one of the values are true
+
+ // Example 3 Ternary
+ const x = 11;
+ const color = x > 10 ? 'red' : 'blue' // if x is greater than(?) 10, print red, else(:) print blue.
+ console.log(color);
+  // Will print: 'red'
+
+  // Example 4 Switch
+  const x = 10;
+  const color = x > 10 ? 'red' : 'blue'
+  switch(color) {
+      case 'red':
+          console.log('color is red');
+          break;
+      case 'blue':
+          console.log('color is blue');
+          break;
+      default:
+          console.log('color is NOT red or blue');
+      }
+    // Will print: 'color is red'. If we change const color to green, then it will print 'color is NOT red or blue'.
+// ------------------------------------------------------------------
+
+
+// Functions --------------------------------------------------------
+
+function addNums(num1, num2) {
+    return num1 + num2;
+}
+console.log(addNums(5, 5));
+ // Will print '10'
+ 
+ // Arrow functions, handy and clean things up, introduced in ES6
+ const addNums = (num1, num2) => {  // Name it as a variable (const) insteat of function, then add an = before () and a fat arrow => after the ().
+    return num1 + num2;
+}
+console.log(addNums(5, 5));
+ // Will print '10'
+
+ // Usually you dont console log functions but rather return them. But here are some examples.
+
+ // Example 1
+ function addNums(num1, num2) {
+    console.log(num1 + num2);
+ }
+ addNums(5,4);      // Calls the above function and adds the two parameters 5 and 4. Not adding parameters will prin 'NaN' (Not a Number).
+ // Will print '9'
+
+ // Example 2
+ function addNums(num1 = 1, num2 = 1) { // adding the parameters directly.
+    console.log(num1 + num2);
+ }
+ addNums();
+ // Will print '2'. If you call the function with addNums(5, 5); it will override and print '10'.
+
+// ------------------------------------------------------------------
+
+
 
 
 // ------------------------------------------------------------------
@@ -339,37 +416,37 @@ length: 2
 
 // Manipulating the DOM with JavaScript------------------------------
 
-//https://www.reddit.com/r/learnjavascript/comments/103uxvs/mustknow_dom_manipulation_methods
+ //https://www.reddit.com/r/learnjavascript/comments/103uxvs/mustknow_dom_manipulation_methods
 
-// Creating, adding and removing:
-document.createElement('HTMLTag');          // Create an element 
-document.body.prepend(myElement);           // Insert last 
-document.body.append(myElement);            // Insert first
-parentElement.insertBefore(newElement, existingElement); // Insert before 
-element.remove();                           // Remove element
+ // Creating, adding and removing:
+ document.createElement('HTMLTag');          // Create an element 
+ document.body.prepend(myElement);           // Insert last
+ document.body.append(myElement);            // Insert first
+ parentElement.insertBefore(newElement, existingElement); // Insert before 
+ element.remove();                           // Remove element
 
-// Content setting:
-element.innerHTML = "HTML content";         // Set HTML content inside element
-element.innerText = "text content";         // Set text (preserves formatting)
-element.textContent = "text content";       // Set text (ignores formatting)
+ // Content setting:
+ element.innerHTML = "HTML content";         // Set HTML content inside element
+ element.innerText = "text content";         // Set text (preserves formatting)
+ element.textContent = "text content";       // Set text (ignores formatting)
 
-// Working with attributes:
-element.getAttribute('attribute');          // Returns attribute value 
-element.removeAttribute('attribute');       // Removes attribute
-element.setAttribute('attribute', 'value'); // Sets attribute with
-element.id;                                 // Returns element id 
-element.id = 'value';                       // Sets element id
-element.className = 'list';                 // Set new class list 
-element.classList;                          // Returns items in class list in array-like format
-element.classList.add('classItem');         // Add item to class list element.classList.remove('classItem'); // Remove item from class list
-element.classList.toggle('classItem');     // Toggle item in class list
+ // Working with attributes:
+ element.getAttribute('attribute');          // Returns attribute value 
+ element.removeAttribute('attribute');       // Removes attribute
+ element.setAttribute('attribute', 'value'); // Sets attribute with
+ element.id;                                 // Returns element id 
+ element.id = 'value';                       // Sets element id
+ element.className = 'list';                 // Set new class list 
+ element.classList;                          // Returns items in class list in array-like format
+ element.classList.add('classItem');         // Add item to class list element.classList.remove('classItem'); // Remove item from class list
+ element.classList.toggle('classItem');     // Toggle item in class list
 
-// Editing styles:
-getComputedStyle(myElement);                // Returns all styling of an element
-element.style = 'CSS';                      // Sets element style attribute
-element.style.styleAttribute = 'value';     // Sets individual style
+ // Editing styles:
+ getComputedStyle(myElement);                // Returns all styling of an element
+ element.style = 'CSS';                      // Sets element style attribute
+ element.style.styleAttribute = 'value';     // Sets individual style
 
-// Vet inte var jag ska lägga dessa
-element.insertAdjacentHTML('beforeend', `HTML content`)
-element.insertAdjacentText('beforeend', `Text content`)
+ // Vet inte var jag ska lägga dessa
+ element.insertAdjacentHTML('beforeend', `HTML content`)
+ element.insertAdjacentText('beforeend', `Text content`)
 // ------------------------------------------------------------------
