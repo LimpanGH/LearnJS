@@ -1,4 +1,3 @@
-Continue Timestamp: 50:00   link: https://www.youtube.com/watch?v=hdI2bqOjy3c
 
 /* MDN is the best documentation for JS according to Traversy.
 Console metods: https://developer.mozilla.org/en-US/docs/Web/API/console#methods */
@@ -407,6 +406,9 @@ console.log(addNums(5, 5));
 
 // ------------------------------------------------------------------
 
+
+
+// Object oriented programming --------------------------------------
 
 
 
