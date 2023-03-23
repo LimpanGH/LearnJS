@@ -418,6 +418,61 @@ console.log(addNums(5, 5));
 
 
 
+
+
+
+
+
+
+
+
+
+
+// Functions -------------------------------------------------------- https://www.youtube.com/watch?v=W6NZfCO5SIk
+
+/* Functions are one of the three Reference data-types (objects, arrays, functions). Functions is one of the fundamental building blocks in JS.
+A function is basically a set of statements that performs a task or calculates a value. */
+
+// Performing a task.
+function greet() {                 // Declaring a function by writing "function ()", giving the function a name "greet". We define our logic by writing our statements in the function body (everything between the curly braces).
+  console.log('Hello World');      // First statement in our function body, statements are ending with a semicolon. The logic here is to display a message in the console.
+}
+
+greet();                           // Here we call the function by writing a statement with the name of the function followed by ();
+
+
+// Functions can have inputs in the declaration that can change how the function behaves.
+function greet (firstName, lastName)                     // Here we input two variables that we refer to as parameters. We input parameters that we name "firstName" and "lastName". These variables/parameters are only meaningful inside of this function, they will not be accessible outside of this function.
+    console.log (`Hello ${firstName} ${lastName}` );     // Using template string to print both parameters
+  }
+  
+  greet('John ', 'Smith');                          // In this statement we call the function "greet" and add two arguments, 'John' and 'Smith', to the greet-function. THE ARGUMENT IS A VALUE THAT WE SUPPLY TO THE PARAMETER.
+// Output: Hello John Smith
+
+
+
+  // Calculating a value.
+function square (number) {         //  enter a parameter "number".
+    return number * number;
+  } 
+  
+  let number = square (2);
+  console.log(number)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Manipulating the DOM with JavaScript------------------------------
 
  //https://www.reddit.com/r/learnjavascript/comments/103uxvs/mustknow_dom_manipulation_methods
