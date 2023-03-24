@@ -439,25 +439,26 @@ function greet() {                 // Declaring a function by writing "function 
 }
 
 greet();                           // Here we call the function by writing a statement with the name of the function followed by ();
+// Output: Hello World
 
 
 // Functions can have inputs in the declaration that can change how the function behaves.
-function greet (firstName, lastName)                     // Here we input two variables that we refer to as parameters. We input parameters that we name "firstName" and "lastName". These variables/parameters are only meaningful inside of this function, they will not be accessible outside of this function.
-    console.log (`Hello ${firstName} ${lastName}` );     // Using template string to print both parameters
+function greet (firstName, lastName)                    // Here we input two variables that we refer to as parameters. We input parameters that we name "firstName" and "lastName". These variables/parameters are only meaningful inside of this function, they will not be accessible outside of this function.
+    console.log (`Hello ${firstName} ${lastName}` );    // Using template string to print both parameters
   }
   
-  greet('John ', 'Smith');                          // In this statement we call the function "greet" and add two arguments, 'John' and 'Smith', to the greet-function. THE ARGUMENT IS A VALUE THAT WE SUPPLY TO THE PARAMETER.
+  greet('John ', 'Smith');                              // In this statement we call the function "greet" and add two arguments, 'John' and 'Smith', to the greet-function. THE ARGUMENT IS A VALUE THAT WE SUPPLY TO THE PARAMETER.
 // Output: Hello John Smith
 
 
 
   // Calculating a value.
-function square (number) {         //  enter a parameter "number".
-    return number * number;
+function square (number) {         //  We declare the function "square" and enter the parameter "number".
+    return number * number;        // In our statement/logic we add the keyword "return" and ask it to multipy the parameter by the parameter. The return keyword will return the result-value to whoever is calling the function.
   } 
   
-  let number = square (2);
-  console.log(number)
+  let number = square (2);        // Here we call the square-function and add the argument "2".
+  console.log(number);
 
 
 
@@ -469,7 +470,7 @@ function square (number) {         //  enter a parameter "number".
 
 
 
-
+o
 
 
 
