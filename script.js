@@ -470,7 +470,6 @@ function square (number) {         //  We declare the function "square" and ente
 
 
 
-o
 
 
 
