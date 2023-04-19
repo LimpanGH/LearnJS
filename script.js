@@ -416,12 +416,16 @@ console.log(addNums(5, 5));
 
 // ------------------------------------------------------------------
 
+// Questions for aries ----------------------------------------------
+let b = Math.floor(2,4);                    // Math.floor doesen´t have a parantheses around it, value in the function-prantheses
+console.log(b);
 
+let a = Math.floor (Math.random() *10);     // Why no function-parantheses for Math.floor
+console.log(a);
 
+let c = Math.floor (Math.random(4,4) * 10); //does the function-parantheses with a value simply go after Math.random instead of after Math.floor like on line 420?
 
-
-
-
+console.log ( Math.floor (Math.random() * 100) );
 
 
 
@@ -461,14 +465,108 @@ function square (number) {         //  We declare the function "square" and ente
   console.log(number);
 
 
+// Inserting a persons name to a message.
+function sayThanks(name) {        // declaring a function and name it "sayThanks", adding a parameter that we name "name".
+    console.log('Thank you for your purchase ' + name + '! We appreciate your business.'); // Inserting the parameter to our message.
+  }
+  sayThanks('Cole'); /* Calling sayThanks() and inserting an argument in the form of a variable (numbers would be called values) 
+                        to the function declarations parameter "name". The parameter then inserts the argument to the code-block. */ 
+
+
+/* 1 Passing the values 5 and 7 to the parameters.
+   2 Calculating area.
+   3 Returning the result
+   4 Printing the result to the console. */
+function rectangleArea (width, height) {    // creating a function named "rectangleArea" and assign two parameters.  
+    let area = width * height;              // Then we declare a variable named area and set its value to the parameters "width" and "height".
+    return area;                            // Then we return the result/value of area.
+  }
+  console.log(rectangleArea (5, 7));        // Calling our function and passing the arguments/values 5 and 7 to the paramenters in our function declaration.
+  
+
+// This function will result in the same value as..
+function monitorCount(rows, columns) {
+  const numOfMonitors = rows * columns;
+  return numOfMonitors
+}
+console.log(monitorCount(5, 4));
+  
+  // ... this one.
+function monitorCount(rows, columns) {
+   return rows * columns;
+ }
+const numOfMonitors = monitorCount(5, 4);
+console.log(numOfMonitors);
+
+
+// FUNCTION DECLARATIONS:
+// Example 1: A function that converts the temperature from Celsius to Fahrenheit.
+function multiplyByNineFifths(number) {         // 3. Value of 15 is passed from the "multiplyByNineFifths" "parameter" to the functions codeblock and multiplied by "9/5".
+    return number * (9/5);                      // 4. result is returned to  "getFahrenheit" since "getFahrenheit" is the function that called "multiplyByNineFifths".   
+  };
+   
+  function getFahrenheit(celsius) {             // 2. Value of "15" is inserted in "celsius-parameter", the code-block calls "multiplyByNineFifths" and passes value to "number-parameter".
+    return multiplyByNineFifths(celsius) + 32;  // 5. "getFahrenheit" takes the returned value (27) from "multiplyByNineFifths" and adds 32.
+  };                                            // 6. the result (59) is returned to the function-caller "getFahrenheit(15)" 
+   
+  console.log(getFahrenheit(15));               // 1. calling getFahrenheit and passing value of 15
+                                                // 7. The returned value from the mainfunction and the helper function has now reached the function-caller and is then printed to the console.
+
+
+// Example 2: Calculating cost for monitors                                                
+function monitorCount(rows, columns) {          // 3. The values "5" and "4" are passed from "monitorCounts" parameters "rows, columns" to the code-block where they are multiplied.
+    return rows * columns;                      // 4. result is returned to  "costOfMonitors" since "costOfMonitors" is the function that called "monitorCount".//
+  }
+  
+  function costOfMonitors (rows, columns) {     // 2. Value of "5" and "4" is inserted to parameters "rows" and "columns", the code-block calls "monitorCount" and passes the values to it's parameters "rows, columns".
+    return monitorCount(rows, columns) * 200;   // 5. "costOfMonitors" takes the returned value (200) from "monitorCount" and multiplies it by 200. 
+  }                                             // 6. the result (4000) is returned to the function-caller "costOfMonitors (5, 4);" 
+  
+  const totalCost = costOfMonitors (5, 4);      // 1. Making a variable called named "totalCost" and assign ints value to: call "costOfMonitors" and pass two arguments in form of values (5, 4), to "costOfMonitors" parameters "rows" and "columns".
+  console.log(totalCost);                       // 7. Printing "totalCost" to the console.
 
 
 
+  // FUNCTION EXPRESSIONS: (another way of writing a function, there are several ways to write a function).   https://www.codecademy.com/courses/introduction-to-javascript/lessons/functions/exercises/function-expressions
+  //Example: check if it is correct day to water plants. 
+  const plantNeedsWater = function(day) {
+    if (day === 'Wednesday') {
+    return true; 
+    } else {
+      return false;
+    }
+  };
+  console.log (plantNeedsWater('Tuesday'));
+
+// Default parameters, change them to custom parameters by entering arguments when you call the function. Undefinded argument will print the default parameter.
+  function makeShoppingList(item1 = ('milk'), item2 =('bread'), item3=('eggs')){
+  console.log(`Remember to buy ${item1}`);
+  console.log(`Remember to buy ${item2}`);
+  console.log(`Remember to buy ${item3}`);
+}
+makeShoppingList('rubbers', undefined,'straaabris');
+
+// Return keyword, storing the result of a calculation and returns the value to the function-call.
+function rectangleArea(width, height) {
+  if (width < 0 || height < 0) {                              // If true: the first "return" will run.
+    return 'You need positive integers to calculate area!';
+  }
+  return width * height;                                      // If false: the second "return" will run.
+}
+console.log(rectangleArea(2,2) );                             // Both values are positive number so the second "return" will run and return the value of 4.
 
 
+ /* 1. Convert 15° celsius to farenheit with two functions (main function and helper-function).
+    2. Print the result to console. */
+function multiplyByNineFifths(number) {     // 4. The argument is inserted in the parameter "number".
+  return number * (9/5);                    // 5. The parameters value (still 15), is passed to the varable "number" and multiplied by (9/5). The result is return to "getFarenheit".
+};
 
+function getFarenheit(celsius) {            // 2. "15" is passed to parameter (celsius).
+  return multiplyByNineFifths(celsius) +32; // 3. Codeblock calls "multiplyByNineFifths" and passes the argument "celsius" which has the value of 15.
+};                                          // 6. The returned value (27), is added to 32, which results in 59. The value of 59 is returned to the function-call "getFarenheit(15)" and then printed to the console.
 
-
+console.log(getFarenheit(15));              // 1. Function-call calls "getFarenheit" and passes the argument "15"
 
 
 
