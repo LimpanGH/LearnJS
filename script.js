@@ -526,9 +526,21 @@ function monitorCount(rows, columns) {          // 3. The values "5" and "4" are
   console.log(totalCost);                       // 7. Printing "totalCost" to the console.
 
 
+// FUNCTION EXPRESSIONS: (another way of writing a function, there are several ways to write a function).   https://www.codecademy.com/courses/introduction-to-javascript/lessons/functions/exercises/function-expressions
+// Example 1: This will give the same result as the example above, (Example 2: Calculating cost for monitors ). 
+const monitorCount = function(rows,columns) {
+  return rows * columns;
+}
 
-  // FUNCTION EXPRESSIONS: (another way of writing a function, there are several ways to write a function).   https://www.codecademy.com/courses/introduction-to-javascript/lessons/functions/exercises/function-expressions
-  //Example: check if it is correct day to water plants. 
+const costOfMonitors = function (rows, columns) {
+  return monitorCount(rows, columns) * 200;
+}
+
+console.log(costOfMonitors(5,4));
+
+
+ 
+  //Example 2 : check if it is correct day to water plants. 
   const plantNeedsWater = function(day) {
     if (day === 'Wednesday') {
     return true; 
@@ -537,6 +549,23 @@ function monitorCount(rows, columns) {          // 3. The values "5" and "4" are
     }
   };
   console.log (plantNeedsWater('Tuesday'));
+
+
+  // These two will result in the same value. (calculating mumber of seconds in a week)
+const numberOfSecondsInOneWeek = function(seconds, minutes, hours, days) {
+let totalSeconds = seconds * minutes * hours * days; 
+  return totalSeconds
+}
+let total = numberOfSecondsInOneWeek(60,60,24,7);
+console.log(total);
+
+
+function numberOfSecondsInOneWeek(seconds, minutes, hours, days) {
+  return seconds * minutes * hours * days;
+}
+console.log(numberOfSecondsInOneWeek(60,60,24,7));
+
+
 
 // Default parameters, change them to custom parameters by entering arguments when you call the function. Undefinded argument will print the default parameter.
   function makeShoppingList(item1 = ('milk'), item2 =('bread'), item3=('eggs')){
@@ -569,7 +598,101 @@ function getFarenheit(celsius) {            // 2. "15" is passed to parameter (c
 console.log(getFarenheit(15));              // 1. Function-call calls "getFarenheit" and passes the argument "15"
 
 
+// Arrow functions
+// Example 1: Concise body single-line block (without param-parantheses, return-keyword and curly-braces).
+const sumNumber = number => number * number; // A variable named "sumNumber", which also is the function-id, followed by the parameter "number", (0 or multiple params need a parantheses). Then a fat arrow point to the code-block.
+console.log(sumNumber(5));                   //The contents of the block should immediately follow the arrow => and the return keyword can be removed. This is referred to as implicit return.
+                                             // Single line code-blocks don´t need curly-braces. So the arument "5" will hit the param and then go to the code-block and is multiplied by itself.
 
+// Example 2: Concise body multi-line block.
+const sumNumber = number => {
+  const sum = number * number;
+  return sum;
+}
+console.log(sumNumber(5));
+
+// Example 3: Concise body single-line block with ternary operators.
+const plantNeedsWater = day => day === 'Wednesday' ? true : false; // Here I used ternary operators "?" and ":" to make a multi-line block into a single-line block.
+console.log(plantNeedsWater('Wednesday'));
+
+
+// Loops ------------------------------------------------------------ https://www.youtube.com/watch?v=Kn06785pkJg
+
+/* 
+1. for
+2. for..of
+3. for..in
+4. while
+5. do..while
+6. forEach  */
+  
+// 1.1. for loop
+for (let i = 0; i < 5; i++) {   // (Initialization, conditition, iteration).
+  console.log('Hi!' + i);       // Logs the string and the indexnumber of each iteration.
+  if (i === 3) {                // we can add an if-statement and the keyword "break"
+    break;                      // In this case, the iteration will stop at 3, not printing 4.
+  }
+}
+// Prints: "Hi!0" "Hi!1" "Hi!2" "Hi!3"
+  
+// 1.2. for-loop to loop through an array.
+const firstNames = ['john', 'bob', 'mary', 'joe']; 
+for (let i = 0; i < firstNames.length; i++) {   // let i be less than the length of our array (4), and itterate by 1 each time.
+  console.log(firstNames[i] + i);               // print each element in the array by adding our index "[i]" to our variable, I'm also adding the index-number " + i".
+}
+// Prints: "john0" "bob1" "mary2" "joe3"
+
+// 2. for..of loop. This kind of loop is a bit slower than a normal for-loop
+const firstNames = ['john', 'bob', 'mary', 'joe']; // Setting a variable to an array.
+for (variable of firstNames) {                     // Deconstructing the array, taking each element in the array and assign it to our variable
+  console.log(variable);
+}
+// Prints: "john" "bob" "mary" "joe"
+
+// 3. for..in loop with an object
+const user = {             // Creating an object with two key-value pairs.
+  'firstName': 'john',     // Don't forget the comma!
+  'lastName': 'doe'
+}
+for (variable in user) {        // The index of our key-value pairs will be stored in our variable, (I just named it "variable" in this case).
+  console.log(user[variable]);  // Logging "user" with the index of "[variable]". I.e the loop first logs the key "firstName" and then the key "lastName".
+}
+// Prints: "john" "doe"
+
+
+// 4.1 While loop with optional break
+let i = 0;                      // Here we declare our index outside the loop.
+while (i < 10) {                // While i is less then ten..
+  console.log(i);               // ..keep logging i..
+  i ++;                         // ..increment by 1, WITHIN THE LOOP!! Otherwise it becomes an infinite loop.
+  if (i === 5) break;           //.. but stop if i = 5 (break or continue is optional.
+} 
+// Prints: 0 1 2 3 4
+
+// 4.2 While loop with optional continue
+let i = 0;                      
+while (i < 10) {                
+  i ++;                         
+  if (i === 5) continue;           // If we use "continue" we need to console.log AFTER the if statement. Continue skips 5 and then continues the loop until it is false.
+  console.log(i); 
+} 
+// Prints: 1 2 3 4 .. 6 7 8 9 10      // Starts at 1 instead of 0 since the cl comes AFTER the i++.
+
+
+// 5. Do while loop (similar to the while-loop, but will ALWAYS run the first time)
+let i = 0;
+do {      // The first statement will always run in do-while loops. It checks for the condition after the do-statement has run. For example, if i is set to 0, it will still print 1.
+  i ++;
+  if (i === 5) continue;
+  console.log(i);
+} while (i < 10);
+// Prints: 1 2 3 4 .. 6 7 8 9 10      // Will start at 1 instead of 0 since do-while loops ALWAYS run the first time.
+
+// 6. For each (one of the High order array functions). GOOD FOR LOOPING THROUGH ARRAYS.
+const animals = ['cat', 'dog', 'horse', 'sheep', 'bird']; // Creating a variable and set it to an array.
+animals.forEach(variable => {               // Taking our variable and attaching 
+  console.log(animal);
+})
 
 // Manipulating the DOM with JavaScript------------------------------
 
