@@ -100,7 +100,7 @@ console.log(example.split(''));     //split by letter
 //Will print '(11) ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']'. Stating 11 indexed characters in the paranteses and then prints all of them.
 
 const example = 'technology, computer, it, code';
-console.log(example.split(', '));    //split by word
+console.log(example.split(', '));    //split by commas
 // Will print '(4) ['technology', 'computer', 'it', 'code']'. Stating 4 indexed words in the paranteses and then prints all of them.
 // ------------------------------------------------------------------
 
@@ -140,7 +140,210 @@ fruits.pop(); // will not print the last value in your array.
 console.log(Array.isArray)('example'); // will give you a boolean answer as to whether something is an array or not.
 console.log(example.indexOf('oranges')); // Will print the index of a certaint value. Will print '1' since oranges has the index of 1.
 
-// Array documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+// Array iteration mehods --------------  
+// https://www.codecademy.com/courses/introduction-to-javascript/lessons/javascript-iterators/exercises/for-each
+// MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+// 1. The .forEach() Method
+const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+
+// 1.1 .forEach() Assigning the function to a variable
+ let printGrocery = fruits => {
+  console.log(`I want to eat a ${fruits}.`);
+}
+fruits.forEach(printGrocery); 
+
+// 1.2. .forEach() Defining a function beforehand to be used as the callback function
+function printGrocery(fruits) {
+  console.log(fruits);
+}
+fruits.forEach(printGrocery);
+
+
+// 1.3 .forEach() Arrow function
+ fruits.forEach ( fruits => {
+    console.log(`I want to eat a ${fruits}.`);
+    // console.log(groceryItem.typeOf);
+}); 
+
+
+// 2.1 The .map() Method (Creates a new array!!!)
+const numbers = [1, 2, 3, 4, 5];          // Array
+
+const bigNumbers = numbers.map( numbers => {  // We call the .map() method on the array to iterate through each element in the array, 
+  return numbers * 10;                    // each element is passed to the codeblock and multiplied by 10, 
+});                                       // this value is saved to a new array which is stored in the variable "bigNumbers". 
+console.log(bigNumbers); // Output: [10, 20, 30, 40, 50]  Logging the variable which points to the same place as our new array.
+console.log(numbers);    // Output: [1, 2, 3, 4, 5]       The original array is unchanged!
+
+// 2.2 .map() Method. Create a secretMessage array.
+const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+const secretMessage = animals.map(animals => {
+  return animals[0];
+})
+console.log(secretMessage.join('')); // Output: HelloWorld
+
+// 2.3 .map() Method. Divide each number by 100 and save it to a new array.
+const bigNumbers = [100, 200, 300, 400, 500];
+const smallNumbers = bigNumbers.map(bigNumbers => {
+  return bigNumbers / 100;
+} )
+console.log(smallNumbers.join(' ')); // Output: 1 2 3 4 5
+
+
+// The .filter() Method. Returns a new array of elements after filtering out certain elements from the original array. The callback function for the .filter() method should return true or false depending on the element that is passed to it. https://www.codecademy.com/courses/introduction-to-javascript/lessons/javascript-iterators/exercises/filter
+
+// 1.1 Call .filter() words to filter out any word that has 6 or more characters.
+const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+const shortWords = words.filter(word => { // Declaring a new variable that will store the returned array from invoking .filter() on "words".
+  return word.length < 6;                 // Returns the words that has fewer than 6 characters.
+});
+console.log(shortWords.join(' '));        // Output: chair music brick pen door
+console.log(words.join(' '));             // Output: chair music pillow brick pen door  I.e the words array is not changed!
+
+// 1.2 Call .filter() on randomNumbers to filter out numbers that is less than 250.
+const randomNumbers = [375, 200, 3.14, 7, 13, 852];
+const smallNumbers = randomNumbers.filter( less => {
+  return less < 250;
+});
+console.log(smallNumbers.join(' '));  // Output: 200 3.14 7 13
+
+
+// 1.3 Call .filter() on favoriteWords to filter out words that has 7 or less characters.
+const favoriteWords = ['nostalgia', 'hyperbole', 'fervent', 'esoteric', 'serene'];
+const longFavoriteWords = favoriteWords.filter( param => {
+  return param.length > 7; 
+})
+console.log(longFavoriteWords.join(' ')); // Output: nostalgia hyperbole esoteric
+
+
+
+// The .findIndex() Method. We sometimes want to find the location of an element in an array. That’s where the .findIndex() method comes in! Calling .findIndex() on an array will return the index of the first element that evaluates to true in the callback function. https://www.codecademy.com/courses/introduction-to-javascript/lessons/javascript-iterators/exercises/find-index
+
+// 1.1 .findIndex() Method. Invoke .findIndex() on the animals array to find the index of the element that has the value 'elephant'.
+const animals = ['hippo', 'tiger', 'lion', 'seal', 'cheetah', 'monkey', 'salamander', 'elephant'];
+const foundAnimal = animals.findIndex( param => {
+  return param === 'elephant';
+})
+console.log(foundAnimal);  // Output: 7
+
+// 1.2 .findIndex() Method. Find the index of the first animal that starts with the letter 's'.
+const startsWithS = animals.findIndex( param2 => {
+  return param2[0] === 's';
+});                                       
+console.log(startsWithS);  // Output: 3
+
+
+// The .reduce() Method. Returns the sum of all the elements in an array. 
+// Its a widely used iteration method. The .reduce() method returns a single value after iterating through the elements of an array, thereby reducing the array. 
+// https://www.codecademy.com/courses/introduction-to-javascript/lessons/javascript-iterators/exercises/reduce
+
+// 1.2 The .reduce() method
+const numbers = [1, 2, 4, 10];
+const summedNums = numbers.reduce((accumulator, currentValue) => {   // The callback function is the first argument in the ".reduce" method. In this case the callback function takes two parameters.
+  return accumulator + currentValue
+},0)                                           // we should always put a second argument of 0 or a number of our choosing in the .reduce method to avoid issues.
+console.log(summedNums); // Output: 117
+
+//Here are the values of accumulator and currentValue as we iterate through the numbers array: 0 + 1 + 2 + 4 + 10 = 17
+/* Iteration	accumulator	currentValue	return value
+   First	        1         	2         	3             1+2 = 3
+   Second 	      3         	4          	7             3+4 = 7
+   Third	        7         	10        	17            7+10 = 17    */
+
+
+// 1.2 The .reduce() method can also take an optional second parameter to set an initial value for accumulator.  https://www.codecademy.com/courses/introduction-to-javascript/lessons/javascript-iterators/exercises/reduce
+const numbers = [1, 2, 4, 10];
+const summedNums = numbers.reduce((accumulator, currentValue) => {   // The callback function is the first argument in the ".reduce" method. In this case the callback function takes two parameters.
+  return accumulator + currentValue
+}, 100)                                                              // "100" is the second argument for .reduce() in this case, remeber the comma!. We should always put a second argument of 0 or a number of our choosing in the .reduce method to avoid issues.
+console.log(summedNums); // Output: 117
+
+//Here are the values of accumulator and currentValue as we iterate through the numbers array:
+/* Iteration	accumulator	currentValue	return value
+   First	       100        	1         	101         // 100 becomes the initial value for "acumulator" and 1 becomes the second value. 
+   Second 	     101        	2         	103           
+   Third	       103        	4         	107              
+   Fourth	       107        	10        	117   */
+
+
+// 1.3 The .reduce() method
+const newNumbers = [1, 3, 5, 7];
+
+const newSum = newNumbers.reduce ((accumulator, currentValue) => {
+  console.log('The value of accumulator: ', accumulator);     // 1. To check the value being used as we iterate through the array, we add three statements to the function body of the callback
+  console.log('The value of currentValue: ', currentValue);   // 2.
+  return accumulator + currentValue;                          // 3.
+}, 10); // Output: The value of accumulator:  10              // we should always put a second argument of 0 or a number of our choosing in the .reduce method to avoid issues.
+                // The value of currentValue:  1
+                // The value of accumulator:  11
+                // The value of currentValue:  3
+                // The value of accumulator:  14
+                // The value of currentValue:  5
+                // The value of accumulator:  19
+                // The value of currentValue:  7
+console.log(newSum); // Output: 26    (gives us the total result)
+
+
+// A couple of iteration methods: .some(), .filter(), .lenght(), .every()
+
+const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+
+// The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
+console.log(words.some((word) => {
+  return word.length < 6;
+}));
+// Output: true
+
+// Use filter to create a new array of words that has more than 5 characters
+const interestingWords = words.filter( (longerThanFive) => {
+    return longerThanFive.length > 5;
+});
+console.log(interestingWords.join(' '));
+// Output: unique uncanny oxymoron
+
+// Check if every element has more than 5 characters.
+console.log(interestingWords.every((word) => { 
+  return word.length > 5;
+} ));
+// Output: true
+
+
+// Choosing the Right Iterator
+const cities = ['Orlando', 'Dubai', 'Edinburgh', 'Chennai', 'Accra', 'Denver', 'Eskisehir', 'Medellin', 'Yokohama'];
+
+const nums = [1, 50, 75, 200, 350, 525, 1000];
+
+//  Choose a method that will return undefined
+cities.forEach(city => console.log('Have you visited ' + city + '?')); // Output: Have you visited Orlando? ...
+
+// Choose a method that will return a new array
+
+// Choose a method that will return a new array
+const longCities = cities.filter(city => city.length > 7);   
+console.log(longCities.join(' '));   // Output: Edinburgh Eskisehir Medellin Yokohama
+
+// Choose a method that will return a single value
+const word = cities.reduce((acc, currVal) => {
+  return acc + currVal[0]
+}, "C");
+console.log(word) // Output: CODECADEMY
+
+// Choose a method that will return a new array
+const smallerNums = nums.map(num => num - 5);
+
+// Choose a method that will return a boolean value
+console.log(nums.some(num => num < 0));   // Output: false        
+
+// Review ITERATORS: --------------------
+// .forEach() is used to execute the same code on every element in an array but does not change the array and returns undefined.
+// .map() executes the same code on every element in an array and returns a new array with the updated elements.
+// .filter() checks every element in an array to see if it meets certain criteria and returns a new array with the elements that return truthy for the criteria.
+// .findIndex() returns the index of the first element of an array that satisfies a condition in the callback function. It returns -1 if none of the elements in the array satisfies the condition.
+// .reduce() iterates through an array and takes the values of the elements and returns a single value.
+// All iterator methods take a callback function, which can be a pre-defined function, a function expression, or an arrow function.
+// You can visit the Mozilla Developer Network to learn more about iterator methods (and all other parts of JavaScript!).
 
 // ------------------------------------------------------------------
 
@@ -319,6 +522,21 @@ const todos = [
  0: {id: 1, text: 'Take out trash', isCompleted: true}
  1: {id: 2, text: 'Meeting with boss', isCompleted: true}
  length: 2
+
+ // Nested loops ---------------
+let bobsFollowers = ["john", "tim", "anna", "lisa"];
+let tinasFollowers = ["dan", "tim", "john"];
+let mutualFollowers = [];
+
+for (let bf = 0; bf < bobsFollowers.length; bf++) {     // Outer loop.
+  for (let tf = 0; tf < tinasFollowers.length; tf++) {  // Inner loop, will loop fully for each element in the outer loop.
+    if (bobsFollowers[bf] === tinasFollowers[tf]) {     // If there is a match, that element can be printed to consol or as in this case, pushed to a globally nested empty array.
+      mutualFollowers.push(bobsFollowers[bf]);          // Push the matching element into your "mutualFollowers" array.
+    } 
+  }
+};
+
+console.log(mutualFollowers);
 
 // ------------------------------------------------------------------
 
@@ -615,6 +833,80 @@ console.log(sumNumber(5));
 const plantNeedsWater = day => day === 'Wednesday' ? true : false; // Here I used ternary operators "?" and ":" to make a multi-line block into a single-line block.
 console.log(plantNeedsWater('Wednesday'));
 
+// High-order functions -------------- https://www.codecademy.com/courses/introduction-to-javascript/lessons/higher-order-functions/exercises/functions-as-parameters
+
+/* Functions as Data -----------
+JavaScript functions behave like any other data type in the language; we can assign functions to variables, and we can reassign them to new variables.
+Below, we have an annoyingly long function name that hurts the readability of any code in which it’s used. */ 
+
+const announceThatIAmDoingImportantWork = () => {
+    console.log("I’m doing very important work!");
+};
+/* Let’s pretend this function does important work and needs to be called repeatedly. To rename this function without sacrificing the source code, 
+we can re-assign the function to a variable with a suitably short name: */
+
+const busy = announceThatIAmDoingImportantWork;
+ 
+busy(); // This function call barely takes any space!
+
+/* busy is a variable that holds a reference to our original function. If we could look up the address in memory of busy and the 
+address in memory of announceThatIAmDoingImportantWork they would point to the same place. 
+Our new busy() function can be invoked with parentheses as if that was the name we originally gave our function. */
+
+/* Notice how we assign announceThatIAmDoingImportantWork without parentheses as the value to the busy variable. We want to assign the value of the function itself, 
+not the value it returns when invoked. 
+In JavaScript, functions are first class objects. This means that, like other objects you’ve encountered, JavaScript functions can have properties and methods.
+Since functions are a type of object, they have properties such as .length and .name, and methods such as .toString(). 
+You can see more about the methods and properties of functions in the documentation.
+Functions are special because we can invoke them, but we can still treat them like any other type of data. */
+
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {    // We’ve defined a function with a very long name: checkThatTwoPlusTwoEqualsFourAMillionTimes()
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+
+const isTwoPlusTwo = checkThatTwoPlusTwoEqualsFourAMillionTimes; // Using const to declare a shorter-named variable, isTwoPlusTwo that will be easier to work with.
+                                                                 // Assigning checkThatTwoPlusTwoEqualsFourAMillionTimes as its value.
+
+isTwoPlusTwo();                  // Invoke your isTwoPlusTwo() function.
+
+console.log(isTwoPlusTwo.name);  // If we forgot the original name of our function, use "isTwoPlusTwo" to console.log() the name property of the function we assigned to "isTwoPlusTwo".
+
+
+/* Functions as Parameters -----------
+As you know, a parameter is a placeholder for the data that gets passed into a function. 
+Since functions can behave like any other type of data in JavaScript, it might not surprise you to learn that functions can accept other functions as parameters. 
+A higher-order function is a function that either accepts functions as parameters, returns a function, or both! We call functions that get passed in 
+as parameters callback functions. Callback functions get invoked during the execution of the higher-order function. */
+
+// Example 1
+const addTwo = num => {     // This is our call-back function
+  return num + 2;
+}
+
+const checkConsistentOutput = (func, val) => {    // Our high-order function
+    let checkA = val +2;
+    let checkB = func(val);
+    if (checkA === checkB) {
+      return checkA;
+    } else {
+      return 'inconsistent results';
+    }
+}
+console.log(checkConsistentOutput(addTwo, 5));  /* Remember to not use the () after "addTwo" When we invoke a higher-order function, and pass another function in as an 
+                                                   argument, we don’t invoke the argument function. Invoking it would evaluate to passing in the return value of that 
+                                                   function call. With callback functions, we pass in the function  itself by typing the function name without the parentheses. */
+
+
+// In this example, we invoke higherOrderFunc() with an anonymous function (a function without a name) that counts to 10. Anonymous functions can be arguments too!
+higherOrderFunc(() => {
+  for (let i = 0; i <= 10; i++){
+    console.log(i);
+  }
+});
 
 // Loops ------------------------------------------------------------ https://www.youtube.com/watch?v=Kn06785pkJg
 
@@ -688,11 +980,53 @@ do {      // The first statement will always run in do-while loops. It checks fo
 } while (i < 10);
 // Prints: 1 2 3 4 .. 6 7 8 9 10      // Will start at 1 instead of 0 since do-while loops ALWAYS run the first time.
 
-// 6. For each (one of the High order array functions). GOOD FOR LOOPING THROUGH ARRAYS.
+// 6.1 For each (one of the High order array functions). GOOD FOR LOOPING THROUGH ARRAYS.  DOC: https://www.codecademy.com/resources/docs/javascript/arrays/forEach  TUT: https://www.youtube.com/watch?v=6Hb0qZ3PVWI 
 const animals = ['cat', 'dog', 'horse', 'sheep', 'bird']; // Creating a variable and set it to an array.
-animals.forEach(variable => {               // Taking our variable and attaching 
-  console.log(animal);
+animals.forEach(item => {               // Taking our variable and attaching the forEach-method than comes with built-in logic that will do things to my array. "Element" is an arbitrary name that will represent each element/item in our array.  
+  console.log(item);                    // Print each element/item in our array. A function with a forEach-method can be invoked with three arguments: value: The value of the array element, index (optional): The index of the array element, array (optional): The array itself.
 })
+
+// or like this..  Anonymous function
+animals.forEach(item => {               
+  console.log(item);
+})
+
+// or like this..  Arrow function
+const logAnimal = (item) => {
+	console.log(item);
+}
+animals.forEach(logAnimal)
+
+// or like this..   Function declaration
+function logAnimal(item) {
+	console.log(item);
+}
+animals.forEach(logAnimal) 
+
+
+// 6.2 For each
+const numbers =[1, 2, 3, 4, 5];       // Array
+
+numbers.forEach(consoleItem);         // Choosing our array and adding forEach() method, specifying our callback-function "consoleItem".
+
+function consoleItem(item, index, arr) {    // This is our callback-function, with the three posible parameters that can be passed to a foreach method.
+  console.log(`a has the index of ${index} and the itemnumber of ${item}`);  // In the code-block we choose to cl and pass some string and two arguments
+}
+/* Prints: 
+"a has the index of 0 and the itemnumber of 1"
+"a has the index of 1 and the itemnumber of 2"
+"a has the index of 2 and the itemnumber of 3"
+"a has the index of 3 and the itemnumber of 4"
+"a has the index of 4 and the itemnumber of 5" */
+
+// 6.3 Here is how you write 6.2 using an arrow function instead of an external callback-function
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach( (item, index, arr) => {  // Moving the arguments, the cl with its message inside the forEach-method-parentheses.
+  console.log(`a has the index of ${index} and the itemnumber of ${item}`);
+} );
+
+
 
 // Manipulating the DOM with JavaScript------------------------------
 
