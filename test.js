@@ -1,8 +1,61 @@
-let story = 'Last weekend, I took literally the most beautifull bike ride of my life. The route is called "The 9W to Nyack" and it stretches all the way from Riverside Park in Manhattan to South Nyack, New Jersey. It\'s really an adventure from beginning to end! It is a 48 mile loop and it literally took me an entire day. I stopped at Riverbank State Park to take some artsy photos. It was a short stop, though, because I had a freaking long way to go. After a quick photo op at the very popular Little Red Lighthouse I began my trek across the George Washington Bridge into New Jersey. The GW is a breathtaking 4,760 feet long! I was already very tired by the time I got to the other side. An hour later, I reached Greenbrook Nature Sanctuary, an extremely beautifull park along the coast of the Hudson. Something that was very surprising to me was that near the end of the route you literally cross back into New York! At this point, you are very close to the end.';
+// OBJECTIVE
+// 1. Get actual sleep
+// 2. Define Ideal sleep
+// 3. Calculate debt, or surplus
 
-let storyWords = story.split(' ');
-let unnecessaryWord = 'literally';
-let misspelledWord = 'beautifull';
-let badWord = 'freaking';
+const getSleepHours = (day) => {
+  switch (day) {
+    case 'monday':
+      return 8;
+      break;
+    case 'tuesday':
+      return 8;
+      break;
+    case 'wednesday':
+      return 8;
+      break;
+    case 'thursday':
+      return 8;
+      break;
+    case 'friday':
+      return 8;
+      break;
+    case 'saturday':
+      return 8;
+      break;
+    case 'sunday':
+      return 8;
+      break;
+  }
+};
+//console.log(getSleepHours('tuesday'));
 
-console.log(storyWords );
+
+let getActualSleepHours = () => getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours( 'thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
+//console.log(getActualSleepHours());
+
+
+let getIdealSleepHours = (hours) => {
+  idealHours = hours * 7;
+  return idealHours;
+}
+//console.log(idealSleepHours());
+
+
+let calculateSleepDebt = () => {
+  let actualSleepHours = getActualSleepHours();
+  let idealSleepHours = getIdealSleepHours(8);
+  if (actualSleepHours === idealSleepHours) {
+    return (`You slept just the right amount of sleep.`);
+  } else if (actualSleepHours < idealSleepHours) {
+    return (`You slept ${(idealSleepHours - actualSleepHours).toFixed(1)} hours less than you need.`);
+  }  else if (actualSleepHours > idealSleepHours) {
+    return (`You slept ${(actualSleepHours - idealSleepHours).toFixed(1)} hours more than you need.`);
+  } 
+  
+};
+ console.log(calculateSleepDebt());
+
+
+
+
